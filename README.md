@@ -1,15 +1,25 @@
-=== Plugin Name ===
-Contributors:
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+=== Rsa-Enc-Dec WordPress Plugin ===
+<br>Contributors: no<br>
+Tags: encrypt, decrypt, rsa<br>
+Requires at least: 3.0.1<br>
+Tested up to: 4.9.10<br>
+License: GPLv2 or later<br>
+License URI: http://www.gnu.org/licenses/gpl-2.0.html<br>
+
+<ol>
+<li>Contributors: no</li>
+<li>Tags: encrypt, decrypt, rsa</li>
+<li>Requires at least: 3.0.1</li>
+<li>Tested up to: 4.9.10</li>
+<li>License: GPLv2 or later</li>
+<li>License URI: http://www.gnu.org/licenses/gpl-2.0.html</li>
+</ol>
 
 RSA-encription and RSA-decription with public and private keys.
 
 == Description ==
+
+The WordPress plugin encrypt the back-end post or page content string wrapped with the shortcode tags such as: [rsa_tag]The string[/rsa_tag]. Before the string will be show on the front-end it encrypted with private key RSA method and placed in the 'wp_rsa_table' table of database. Then the encrypted string takes out from database, decrypted with public key RSA method and placed on the user screen. After that 'wp_rsa_table' table cleare out.
 
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 
