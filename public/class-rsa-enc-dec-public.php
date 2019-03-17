@@ -30,7 +30,7 @@ class Rsa_Enc_Dec_Public {
 	 * @access   private
 	 * @var      string    $rsa_enc_dec    The ID of this plugin.
 	 */
-	private $rsa_enc_dec;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -48,9 +48,9 @@ class Rsa_Enc_Dec_Public {
 	 * @param      string    $rsa_enc_dec       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $rsa_enc_dec, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->rsa_enc_dec = $rsa_enc_dec;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -74,7 +74,7 @@ class Rsa_Enc_Dec_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->rsa_enc_dec, plugin_dir_url( __FILE__ ) . 'css/rsa-enc-dec-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/rsa-enc-dec-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -97,7 +97,7 @@ class Rsa_Enc_Dec_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->rsa_enc_dec, plugin_dir_url( __FILE__ ) . 'js/rsa-enc-dec-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/rsa-enc-dec-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -105,7 +105,7 @@ class Rsa_Enc_Dec_Public {
 
 		if ( is_main_query() && is_singular('page') ) {
 			$position  = get_option( 'rsa_enc_dec_position', 'before' );
-			$days      = (int) get_option( 'rsa_enc_dec_notice_day', 0 );
+			$days      = (int) get_option( 'rsa_enc_dec_day', 0 );
 			$date_now  = new DateTime( current_time('mysql') );
 			$date_old  = new DateTime( get_the_modified_time('Y-m-d H:i:s') );
 			$date_diff = $date_old->diff( $date_now );
@@ -158,7 +158,6 @@ class Rsa_Enc_Dec_Public {
 
         return $post_content;
 	}
-
 
 	public function register_shortcodes() {
 	  add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );

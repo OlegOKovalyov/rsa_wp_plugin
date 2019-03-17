@@ -46,7 +46,7 @@ class Rsa_Enc_Dec {
 	 * @access   protected
 	 * @var      string    $rsa_enc_dec    The string used to uniquely identify this plugin.
 	 */
-	protected $rsa_enc_dec;
+	protected $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -72,7 +72,7 @@ class Rsa_Enc_Dec {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->rsa_enc_dec = 'rsa-enc-dec';
+		$this->plugin_name = 'rsa-enc-dec';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -202,7 +202,7 @@ class Rsa_Enc_Dec {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_rsa_enc_dec() {
-		return $this->rsa_enc_dec;
+		return $this->plugin_name;
 	}
 
 	/**

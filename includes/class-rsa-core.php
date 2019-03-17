@@ -31,12 +31,17 @@ class Rsa_Core
 
     public static function rsa_string_show($atts, $content) {
         global $wpdb;
+        $table_name = $wpdb->prefix . 'rsa_table';
         Rsa_Core::createKeyPair(2048);
         // $text = "A secret lies here, send the text via a secure mode";
         // $text = $content;
         $secureText = Rsa_Core::encryptText($content);
 
-        $wpdb->insert('wp_rsa_table', array("rsastrings" => $secureText, "publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s", "%s") );
+        // if ( maybe_create_table( $table_name, $create_ddl ) ) {
+        //     # code...
+        // }
+
+        $wpdb->insert($table_name, array("rsastrings" => $secureText, "publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s", "%s") );
         // $wpdb->insert('wp_rsa_table', array("publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s") );
         $id = $wpdb->insert_id;
         // $query = "SELECT FROM 'wp_rsa_table' WHERE 'id' = $id";
@@ -62,8 +67,9 @@ class Rsa_Core
 
 
         $content =  Rsa_Core::decryptText($secureText);
+        $content = '<div class="rsa-enc-dec alert-info">' . $content . '</div>';
         // $content = $decrypted_text;
-        return "$content";
+        return $content;
     }    
 
 

@@ -1,6 +1,6 @@
 === Rsa-Enc-Dec WordPress Plugin ===
 
-<br>Contributors: no<br>
+Contributors: no<br>
 Tags: encrypt, decrypt, rsa<br>
 Requires at least: 3.0.1<br>
 Tested up to: 4.9.10<br>
@@ -12,16 +12,19 @@ RSA-encription and RSA-decription with public and private keys.
 
 == Description ==
 
-The WordPress plugin encrypt the back-end post or page content string wrapped with the shortcode tags such as: [rsa_tag]The string[/rsa_tag]. Before the string will be show on the front-end it encrypted with private key RSA method and placed in the 'wp_rsa_table' table of database. Then the encrypted string takes out from database, decrypted with public key RSA method and placed on the user screen. After that 'wp_rsa_table' table cleare out. Rsa-Enc-Dec WordPress Plugin uses phpseclib v1.0.15.
+The WordPress plugin encrypt the back-end page content string wrapped with the shortcode tags such as: [rsa_tag]The string[/rsa_tag]. Before the string will be show on the front-end it encrypted with private key RSA method and placed in the 'wp_rsa_table' table of database. Then the encrypted string takes out from database, decrypted with public key RSA method and placed on the user screen. Encrypted string saves in 'wp_rsa_table' table of database. Rsa-Enc-Dec WordPress Plugin uses phpseclib v1.0.15 library.
 
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+To install the plugin and get it working you need:
 
 1. Upload `rsa-enc-dec` directory to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-2. Place `[rsa_tag]The string[/rsa_tag]` in your templates.
+3. Place `[rsa_tag]The string[/rsa_tag]` in your page templates.
+
+
+
 
 == Frequently Asked Questions ==
 

@@ -117,8 +117,8 @@ class Rsa_Enc_Dec_Admin {
 	public function add_options_page() {
 	
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Rsa_Enc_Dec Plugin Settings', 'rsa-enc-dec' ),
-			__( 'Rsa_Enc_Dec', 'rsa-enc-dec' ),
+			__( 'Rsa-Enc-Dec Plugin Settings', 'rsa-enc-dec' ),
+			__( 'Rsa-Enc-Dec', 'rsa-enc-dec' ),
 			'manage_options',
 			$this->option_name,
 			array( $this, 'display_options_page' )
