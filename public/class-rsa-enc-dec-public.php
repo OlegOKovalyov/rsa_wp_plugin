@@ -115,7 +115,7 @@ class Rsa_Enc_Dec_Public {
 				$class = 'is-fresh';
 			}
 
-add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
+// add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
 
 // global $wpdb;
 // echo '<pre>';
@@ -159,6 +159,10 @@ add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
         return $post_content;
 	}
 
+
+	public function register_shortcodes() {
+	  add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
+	}
 
 	// public function rsa_core( $post_content ) {
 		//create keys

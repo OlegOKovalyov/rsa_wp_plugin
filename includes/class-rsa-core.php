@@ -51,14 +51,14 @@ class Rsa_Core
 
         // $secureText = $wpdb->get_var( $query, 1, 0 );
 
-        $wpdb->query( $wpdb->prepare( 
-        "
-            DELETE FROM wp_rsa_table
-            WHERE id = %d
+        // $wpdb->query( $wpdb->prepare( 
+        // "
+        //     DELETE FROM wp_rsa_table
+        //     WHERE id = %d
 
-        ",
-            $id
-        ) );
+        // ",
+        //     $id
+        // ) );
 
 
         $content =  Rsa_Core::decryptText($secureText);
