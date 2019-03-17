@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -23,9 +23,7 @@
 class Rsa_Enc_Dec_Activator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Create new database table during plugin activation
 	 *
 	 * @since    1.0.0
 	 */
@@ -36,18 +34,8 @@ class Rsa_Enc_Dec_Activator {
 
 		if( $wpdb->get_var("SHOW TABLES LIKE 'rsa_table'") != $table_name ) {
 
-		    //table not in database. Create new table
+		    // Table not in database. Create new table
 		    $charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset} COLLATE {$wpdb->collate}";
-
-		 //    $sql = "CREATE TABLE " . $table_name . " (
-			// 	id mediumint(9) NOT NULL AUTO_INCREMENT,
-			// 	time bigint(11) DEFAULT '0' NOT NULL,
-			// 	name tinytext NOT NULL,
-			// 	text text NOT NULL,
-			// 	url VARCHAR(55) NOT NULL,
-			// 	UNIQUE KEY id (id)
-			// )
-			// {$charset_collate};";
 			
 		    $sql = "CREATE TABLE " . $table_name . " (
 				id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -63,9 +51,8 @@ class Rsa_Enc_Dec_Activator {
 			dbDelta($sql);
 		 
 		}
-		else{
-			// echo 'Database has not been created. It already existed.';
-			// wp_die(__('Database ' . $table_name . ' already exists!'));
+		else {
+
 		}
 	}
 

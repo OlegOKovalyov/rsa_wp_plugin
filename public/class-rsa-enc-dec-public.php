@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -101,6 +101,13 @@ class Rsa_Enc_Dec_Public {
 
 	}
 
+	/**
+	 * Conditionally modifying the content for the public-facing side of the site
+	 *
+	 * Inserting the outdated notice text whenever a page is displayed.
+	 *
+	 * @since    1.0.0
+	 */
 	public function the_content( $post_content ) {
 
 		if ( is_main_query() && is_singular('page') ) {
@@ -114,26 +121,6 @@ class Rsa_Enc_Dec_Public {
 			} else {
 				$class = 'is-fresh';
 			}
-
-// add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
-
-// global $wpdb;
-// echo '<pre>';
-// var_dump($wpdb);
-// echo '</pre>';
-
-			//create keys
-			// Rsa_Core::createKeyPair(1024);
-			//Text to encrypt
-			// $text = "A secret lies here, send the text via a secure mode";
-			// echo 'Text : ' . $text . '<br><br>';
-			 
-			// $secureText = Rsa_Core::encryptText($text);
-			// echo 'Encrypted : ' . $secureText . '<br><br>';
-			 
-			// $decrypted_text =  Rsa_Core::decryptText($secureText);
-			// echo 'Decrypted Text : ' . $decrypted_text . '<br><br>';
-
 			// Filter the text
 			$notice = sprintf(
 						_n(
@@ -144,8 +131,7 @@ class Rsa_Enc_Dec_Public {
 						),
 						$date_diff->days
 					);
-
-			// Add the class
+			// Add the CSS class
 			$notice = '<div class="rsa-enc-dec %s">' . $notice . '</div>';
 			$notice = sprintf( $notice, $class );
 
@@ -159,23 +145,13 @@ class Rsa_Enc_Dec_Public {
         return $post_content;
 	}
 
+	/**
+	 * Register all shortcodes of the site
+	 *
+	 * @since    1.0.0
+	 */
 	public function register_shortcodes() {
 	  add_shortcode( 'rsa_tag', array( 'Rsa_Core', 'rsa_string_show' ) );
 	}
 
-	// public function rsa_core( $post_content ) {
-		//create keys
-		// Rsa_Core::createKeyPair(1024);
-		 
-		//Text to encrypt
-		// $text = "A secret lies here, send the text via a secure mode";
-		// echo 'Text : '.$text;
-		 
-		// $secureText = Rsa_Core::encryptText($text);
-		// echo 'Encrypted : '.$secureText;
-		 
-		// $decrypted_text =  Rsa_Core::decryptText($secureText);
-		// echo 'Decrypted Text : '.$decrypted_text;
-
-	// }
 }

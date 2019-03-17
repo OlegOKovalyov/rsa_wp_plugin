@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -114,9 +114,6 @@ class Rsa_Enc_Dec {
 		/**
 		 * The class responsible for RSA-encryption and RSA-decryption functionality.
 		 */
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rsa-core.php';
-		// set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib');
-		// include('Net/SSH2.php');
 		include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rsa-core.php';
 
 		/**
@@ -224,7 +221,5 @@ class Rsa_Enc_Dec {
 	public function get_version() {
 		return $this->version;
 	}
-
-
 
 }

@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -18,14 +18,12 @@
  * @since      1.0.0
  * @package    Rsa_Enc_Dec
  * @subpackage Rsa_Enc_Dec/includes
- * @author     Your Name <email@example.com>
+ * @author     Oleg Kovalyov <koa2003@ukr.net>
  */
 class Rsa_Enc_Dec_Deactivator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Drop plugin's database table during plugin deactivation
 	 *
 	 * @since    1.0.0
 	 */
@@ -35,8 +33,6 @@ class Rsa_Enc_Dec_Deactivator {
 	    $table_name = $wpdb->prefix . 'rsa_table';
 	    $sql = "DROP TABLE IF EXISTS $table_name";
 	    $wpdb->query($sql);
-	    // delete_option('e34s_time_card_version');
-
 	}
 
 }

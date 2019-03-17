@@ -23,9 +23,7 @@ To install the plugin and get it working you need:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Place `[rsa_tag]The string[/rsa_tag]` in your page templates.
 
-
-
-
+etc.<br><br>
 == Frequently Asked Questions ==
 
 = A question that someone might have =

@@ -1,27 +1,73 @@
 <?php
+/**
+ * The file that defines RSA encryption/decryption class
+ *
+ * RSA encryption by private key. RSA decription by public key. PHPSecLib is used.
+ * 
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
+ * @since      1.0.0
+ *
+ * @package    Rsa_Enc_Dec
+ * @subpackage Rsa_Enc_Dec/includes
+ */
+
+/**
+ * The core RSA functionality class.
+ *
+ * @since      1.0.0
+ * @package    Rsa_Enc_Dec
+ * @subpackage Rsa_Enc_Dec/includes
+ * @author     Oleg Kovalyov <koa2003@ukr.net>
+ */
  
 include plugin_dir_path( dirname( __FILE__ ) ) . 'includes/phpseclib/Crypt/RSA.php';
  
 class Rsa_Core
 {
+    /**
+     * RSA private key identifier
+     *
+     * @since    1.0.0
+     * @var      string
+     */    
     public static $privateKey = '';
+    /**
+     * RSA public key identifier
+     *
+     * @since    1.0.0
+     * @var      string
+     */      
     public static $publicKey = '';
-    public static $keyPhrase = '';
-     
+
+    /**
+     * Create the public and private keys for RSA encryption
+     *
+     * @since    1.0.0
+     */     
     public static function createKeyPair() {
         $rsa = new Crypt_RSA();
         $keys=$rsa->createKey(2048);     
         Rsa_Core::$privateKey=$keys['privatekey'];
         Rsa_Core::$publicKey=$keys['publickey'];
     }
- 
+
+    /**
+     * RSA encryption with private key
+     *
+     * @since    1.0.0
+     */    
     public static function encryptText($text) {
         $rsa = new Crypt_RSA();
         $rsa->loadKey(Rsa_Core::$privateKey);
         $encryptedText = $rsa->encrypt($text);
         return $encryptedText;
     }
- 
+
+    /**
+     * RSA decryption with public key
+     *
+     * @since    1.0.0
+     */   
     public static function decryptText($encryText) {
         $rsa = new Crypt_RSA();
         $rsa->loadKey(Rsa_Core::$publicKey);
@@ -29,62 +75,37 @@ class Rsa_Core
         return $plaintext;
     }
 
+    /**
+     * Show decrypted string on the public-facing side of the site (front-end)
+     *
+     * The function encrypts string with RSA encryption, places received binary code 
+     * into database then reads it, RSA-decrypts it and shows it.
+     * 
+     * @since    1.0.0
+     */  
     public static function rsa_string_show($atts, $content) {
         global $wpdb;
         $table_name = $wpdb->prefix . 'rsa_table';
+
         Rsa_Core::createKeyPair(2048);
-        // $text = "A secret lies here, send the text via a secure mode";
-        // $text = $content;
         $secureText = Rsa_Core::encryptText($content);
 
-        // if ( maybe_create_table( $table_name, $create_ddl ) ) {
-        //     # code...
-        // }
-
         $wpdb->insert($table_name, array("rsastrings" => $secureText, "publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s", "%s") );
-        // $wpdb->insert('wp_rsa_table', array("publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s") );
         $id = $wpdb->insert_id;
-        // $query = "SELECT FROM 'wp_rsa_table' WHERE 'id' = $id";
+
         $secureText = $wpdb->get_var( $wpdb->prepare( 
         "
             SELECT rsastrings 
-            FROM wp_rsa_table
+            FROM {$table_name}
             WHERE id = %d
         ", 
             $id
         ) );
 
-        // $secureText = $wpdb->get_var( $query, 1, 0 );
-
-        // $wpdb->query( $wpdb->prepare( 
-        // "
-        //     DELETE FROM wp_rsa_table
-        //     WHERE id = %d
-
-        // ",
-        //     $id
-        // ) );
-
-
         $content =  Rsa_Core::decryptText($secureText);
         $content = '<div class="rsa-enc-dec alert-info">' . $content . '</div>';
-        // $content = $decrypted_text;
+
         return $content;
     }    
-
-
-
-
-
-
-    public static function rsa_string_to_db($content) {
-        global $wpdb;
-        // $wpdb->show_errors();
-        Rsa_Core::createKeyPair(2048);
-        $wpdb->insert('wp_rsa_table', array( "publickeys" => self::$publicKey, 'privatkeys' => self::$privateKey, 'strings' => $content), array("%s", "%s", "%s") );
-        // $id = $wpdb->insert_id;
-        // $query = "SELECT  FROM $wpdb->users;";
-        // $wpdb->get_var( 'query', $column_offset, $row_offset );
-        
-    }    
+   
 }

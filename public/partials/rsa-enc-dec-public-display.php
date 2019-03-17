@@ -5,7 +5,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec

@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -19,7 +19,7 @@
  *
  * @package    Rsa_Enc_Dec
  * @subpackage Rsa_Enc_Eec/includes
- * @author     Your Name <email@example.com>
+ * @author     Oleg Kovalyov <koa2003@ukr.net>
  */
 class Rsa_Enc_Dec_Loader {
 

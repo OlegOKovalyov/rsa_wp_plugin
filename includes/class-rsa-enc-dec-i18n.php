@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    Rsa_Enc_Dec
  * @subpackage Rsa_Enc_Dec/includes
- * @author     Your Name <email@example.com>
+ * @author     Oleg Kovalyov <koa2003@ukr.net>
  */
 class Rsa_Enc_Dec_i18n {
 
@@ -41,7 +41,5 @@ class Rsa_Enc_Dec_i18n {
 		);
 
 	}
-
-
 
 }

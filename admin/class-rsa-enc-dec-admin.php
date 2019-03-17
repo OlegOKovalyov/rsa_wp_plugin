@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/OlegOKovalyov/rsa_wp_plugin
  * @since      1.0.0
  *
  * @package    Rsa_Enc_Dec
@@ -135,6 +135,11 @@ class Rsa_Enc_Dec_Admin {
 		include_once 'partials/rsa-enc-dec-admin-display.php';
 	}
 
+	/**
+	 * Register all related settings of this plugin
+	 *
+	 * @since  1.0.0
+	 */	
 	public function register_setting() {
 
 		// Add a General section
@@ -198,10 +203,8 @@ class Rsa_Enc_Dec_Admin {
 		<?php
 	}
 
-
-
 	/**
-	 * Render the treshold day input for this plugin
+	 * Render the threshold day input for this plugin
 	 *
 	 * @since  1.0.0
 	 */
