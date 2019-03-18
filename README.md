@@ -12,7 +12,7 @@ RSA-encription and RSA-decription with public and private keys.
 
 == Description ==
 
-The WordPress plugin encrypt the back-end page content string wrapped with the shortcode tags such as: [rsa_tag]The string[/rsa_tag]. Before the string will be show on the front-end it encrypted with private key RSA method and placed in the 'wp_rsa_table' table of database. Then the encrypted string takes out from database, decrypted with public key RSA method and placed on the user screen. Encrypted string saves in 'wp_rsa_table' table of database. Rsa-Enc-Dec WordPress Plugin uses phpseclib v1.0.15 library.
+The WordPress plugin encrypts the back-end page content string wrapped with the shortcode tags such as: [rsa_tag]The string[/rsa_tag]. Before the string will be show on the front-end it is encrypted with RSA method private key and is placed in the '<dbprefix>rsa_table' table of database. Then the encrypted string takes out from database, decrypted with RSA method public key and placed on to the user screen. Encrypted string is saved in '<dbprefix>rsa_table' table of database. Rsa-Enc-Dec WordPress Plugin uses PHPSecLib v1.0.15 library.
 
 
 == Installation ==

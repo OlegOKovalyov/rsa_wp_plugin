@@ -13,8 +13,9 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
+ * Defines the plugin name, version, and hooks for enqueue the public-facing
+ * stylesheet and JavaScript, for show the additional page content, for site
+ * shortcodes register.
  *
  * @package    Rsa_Enc_Dec
  * @subpackage Rsa_Enc_Dec/public

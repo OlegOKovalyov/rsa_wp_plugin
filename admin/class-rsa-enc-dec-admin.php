@@ -13,8 +13,9 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
+ * Defines the plugin name, version, and hooks for enqueue 
+ * the admin-specific stylesheet and JavaScript, functions for an options page 
+ * under the Settings submenu and its functionality.
  *
  * @package    Rsa_Enc_Dec
  * @subpackage Rsa_Enc_Dec/admin

@@ -40,7 +40,7 @@ class Rsa_Core
     public static $publicKey = '';
 
     /**
-     * Create the public and private keys for RSA encryption
+     * Create the public and private keys for RSA encryption/decription
      *
      * @since    1.0.0
      */     
@@ -76,7 +76,7 @@ class Rsa_Core
     }
 
     /**
-     * Show decrypted string on the public-facing side of the site (front-end)
+     * Show encrypted string from database on the public-facing side of the site (front-end)
      *
      * The function encrypts string with RSA encryption, places received binary code 
      * into database then reads it, RSA-decrypts it and shows it.
